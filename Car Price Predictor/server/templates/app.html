@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Predictor</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Price Predictor</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Car Name" required>
+            <input type="number" name="year" placeholder="Year" required>
+            <input type="number" name="km_driven" placeholder="Kilometers Driven" required>
+            <select name="fuel" required>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+                <option value="LPG">LPG</option>
+                <option value="Electric">Electric</option>
+            </select>
+            <select name="seller_type" required>
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+                <option value="Trustmark Dealer">Trustmark Dealer</option>
+            </select>
+            <select name="transmission" required>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+            <select name="owner" required>
+                <option value="First Owner">First Owner</option>
+                <option value="Second Owner">Second Owner</option>
+                <option value="Third Owner">Third Owner</option>
+                <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                <option value="Test Drive Car">Test Drive Car</option>
+            </select>
+            <input type="number" step="0.1" name="mileage" placeholder="Mileage (e.g. 20.5)" required>
+            <input type="number" name="engine" placeholder="Engine (CC)" required>
+            <input type="number" step="0.1" name="max_power" placeholder="Max Power (bhp)" required>
+            <input type="number" step="0.5" name="seats" placeholder="Number of Seats" required>
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <h2>Predicted Price: ₹ {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>
